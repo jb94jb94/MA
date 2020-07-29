@@ -85,6 +85,7 @@ output = output.replace("[","")
 output = output.replace("]","")
 output = output.replace("' , ","\t")
 output = output.replace("(","")
+output = output.replace(")","")
     
 f = open(root+"/ngrams/discrim.txt","w")
 f.write(output)
