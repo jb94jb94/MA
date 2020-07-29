@@ -44,7 +44,7 @@ public class FactBase {
 							Document speech = Jsoup.connect("https://factba.se/transcript/" + link).timeout(0)
 									.ignoreContentType(true).validateTLSCertificates(false).get();
 
-							JsonObject speechObj = parser
+ 							JsonObject speechObj = parser
 									.parse(speech.selectFirst("script[type='application/ld+json']").html())
 									.getAsJsonObject();
 							String content = speechObj.get("articleBody").getAsString();
@@ -57,8 +57,8 @@ public class FactBase {
 							joText.addProperty("author", "Donald Trump");
 							joText.addProperty("title", ((JsonObject) entry).get("record_title").getAsString());
 							joText.addProperty("date", ((JsonObject) entry).get("date").getAsString());
-							// content = content.replaceAll("\\[[^\\]]*]", " ");
-							// content = content.replaceAll(" +", " ");
+							content = content.replaceAll("\\[[^\\]]*]", " ");
+							content = content.replaceAll(" +", " ");
 							joText.addProperty("text", content);
 							writer.write(joText.toString());
 							writer.flush();
@@ -66,7 +66,6 @@ public class FactBase {
 							noSpeeches++;
 							read = true;
 						} catch (SocketTimeoutException ste) {
-							System.out.println("Schade :(");
 						}
 					}
 				}

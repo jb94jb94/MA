@@ -17,20 +17,19 @@ public class AmericanRhetoric {
 		Document doc = Jsoup.connect("https://americanrhetoric.com/barackobamaspeeches.htm")
 				.validateTLSCertificates(false).get();
 
-		// boolean skip = true;
 		int i = 0;
-
 		String date = "";
-		// for (Element href : doc.select("[href]")) {
+		
 		for (Element tr : doc.select("tr")) {
-			// if (!k) {
 			if (tr.selectFirst("[face='Tahoma']") != null
 					&& tr.selectFirst("[face='Tahoma']").select("[size='4']") != null) {
 				date = tr.selectFirst("[face='Tahoma']").select("[size='4']").text();
 				if (!date.equals("")) {
+					System.out.println(date);
 					Element href = tr.selectFirst("[href]");
 					if (href != null && href.text() != null) {
 						if (href.toString().contains(".htm") && !href.text().contains("PDF")) {
+							System.out.println(href.text());
 							i++;
 							if (i % 20 == 0) {
 								System.out.println(i);
@@ -41,8 +40,7 @@ public class AmericanRhetoric {
 							for (Element sup : speech.select("[color='#FF0000']")) {
 								sup.remove();
 							}
-							BufferedWriter writer = new BufferedWriter(
-									new FileWriter(new File("AmRhet/text/" + i + ".txt")));
+							BufferedWriter writer = new BufferedWriter(new FileWriter(new File("AmRhet/text/" + i + ".txt")));
 							StringBuilder sb = new StringBuilder();
 							boolean found = false;
 
@@ -63,6 +61,19 @@ public class AmericanRhetoric {
 								}
 							}
 							
+							JsonObject joText = new JsonObject();
+							joText.addProperty("id", i);
+							joText.addProperty("author", "Barack Obama");
+							joText.addProperty("title", href.text());
+							joText.addProperty("date", date);
+							
+							String content = sb.toString();
+							
+							content = content.replaceAll("\\[[^\\]]*]", " ");
+							content = content.replaceAll(" +", " ");
+							joText.addProperty("text", content);
+							
+							writer.write(joText.toString());
 							writer.flush();
 							writer.close();
 						}
