@@ -3,3 +3,5 @@
 /AmRhet/PDF/
 /bin/
 /target/
+.project
+.pydevproject
