@@ -1,0 +1,1 @@
+{"id":51,"author":"Barack Obama","title":"First Presidential Weekly Speech","date":"24 Jan 2009","text":"recovery.gov\n"}
