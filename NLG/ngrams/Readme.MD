@@ -1,4 +1,4 @@
-#Overall stats
+#Overall Stattistics
 
 Characteristic | Obama | Trump
 ---|---|---
@@ -12,3 +12,6 @@ Paragraphs|23145|(1)
 Avg. Paragraphs|48,82|(1)
 
 (1) Paragraphs can not be counted (yet), due to the design of the website and crawler.
+
+#5-9 grams
+In Google Drive...
