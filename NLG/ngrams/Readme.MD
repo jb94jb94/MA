@@ -18,10 +18,17 @@ Avg. Paragraphs|48,82|(2)
 In Google Drive...
 
 # Sentiment Analysis
-A simple sentiment analysis has been performed using VADER
 
-## Results
-President|Negative|Neutral|Positive
+## VADER
+President|Positive|Neutral|Negative
 ---|---|---|---
-Trump|0.093|0.707|0.2
-Obama|0.082|0.748|0.17
+Trump|0.20|0.707|0.093
+Obama|0.17|0.748|0.082
+
+## Sentiwordnet
+Score: (Rounded) sum of all positive/negative word scores (0-1)
+Sentiment Words: No. of words with positive and/or negative score unequal to zero
+President|Sentiment Words|Positive|Negative
+---|---|---|---
+Trump|848,502|68,771|47,753
+Obama|842,842|67,529|47,527
