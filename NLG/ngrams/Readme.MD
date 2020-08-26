@@ -11,7 +11,7 @@ Avg. Sentence Length|18,63|11,44
 Paragraphs|23145|(2)
 Avg. Paragraphs|48,82|(2)
 
-(1) Low confidence, since so far only calculated by counting dots.
+(1) Low confidence, since so far only calculated by counting dots.  
 (2) Paragraphs can not be counted (yet), due to the design of the website and crawler.
 
 #  5-9 grams
@@ -26,7 +26,7 @@ Trump|0.20|0.707|0.093
 Obama|0.17|0.748|0.082
 
 ## Sentiwordnet
-Score: (Rounded) sum of all positive/negative word scores (0-1)
+Score: (Rounded) sum of all positive/negative word scores (0-1)  
 Sentiment Words: No. of words with positive and/or negative score unequal to zero
 President|Sentiment Words|Positive|Negative
 ---|---|---|---
